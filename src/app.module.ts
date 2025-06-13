@@ -1,5 +1,4 @@
 import { Module } from "@nestjs/common";
-import { UsersController } from './users/users.controller';
 import { UsersModule } from './users/users.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from "@nestjs/config";
@@ -7,7 +6,7 @@ import { User } from "./users/users.model";
 
 
 @Module({
-    controllers: [UsersController],
+    controllers: [],
     providers: [],
     imports: [
     ConfigModule.forRoot({

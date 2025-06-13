@@ -10,7 +10,7 @@ interface UserCreationAttrs{
 export class User extends Model<User, UserCreationAttrs>{
 
     @Column({type: DataType.INTEGER, autoIncrement: true, primaryKey: true, unique: true})
-    declare id :number;
+    declare  id :number;
 
     @Column({type: DataType.STRING, unique: true, allowNull: false})
     email: string;

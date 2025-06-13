@@ -2,19 +2,23 @@ import { Module } from "@nestjs/common";
 import { UsersController } from './users/users.controller';
 import { UsersModule } from './users/users.module';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { ConfigModule } from "@nestjs/config";
 
 
 @Module({
     controllers: [UsersController],
     providers: [],
     imports: [
+    ConfigModule.forRoot({
+        envFilePath: '.env',
+    }),
     SequelizeModule.forRoot({
       dialect: 'mysql',
-      host: 'localhost',
-      port: 3307,
-      username: 'root',
-      password: 'QAZWSXEDC',
-      database: 'nestjs',
+      host: process.env.HOST_DB,
+      port: Number(process.env.PORT_DB),
+      username: process.env.USERNAME_DB,
+      password: process.env.PASSWORD_DB,
+      database: process.env.DATABASE_DB,
     autoLoadModels: true,
       models: [],
     }),  

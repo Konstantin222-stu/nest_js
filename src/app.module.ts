@@ -3,6 +3,7 @@ import { UsersController } from './users/users.controller';
 import { UsersModule } from './users/users.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from "@nestjs/config";
+import { User } from "./users/users.model";
 
 
 @Module({
@@ -19,8 +20,8 @@ import { ConfigModule } from "@nestjs/config";
       username: process.env.USERNAME_DB,
       password: process.env.PASSWORD_DB,
       database: process.env.DATABASE_DB,
-    autoLoadModels: true,
-      models: [],
+      models: [User],
+      autoLoadModels: true,
     }),  
         UsersModule
     ],
